@@ -1,79 +1,975 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>adityaweb.xyz</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #000;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    color: #fff;
-    overflow: hidden;
-  }
-  .card {
-    text-align: center;
-    padding: 40px 60px;
-    border: 1px solid #333;
-    border-radius: 12px;
-    animation: fadeIn 1s ease-out;
-  }
-  h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
-  }
-  .check {
-    display: inline-block;
-    margin-right: 8px;
-    animation: pop 0.6s ease-out 0.3s backwards;
-  }
-  p {
-    font-size: 1rem;
-    color: #aaa;
-    margin-top: 6px;
-  }
-  .domain {
-    margin-top: 20px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    border-top: 1px solid #333;
-    padding-top: 16px;
-    display: inline-block;
-  }
-  .domain::after {
-    content: '';
-    display: block;
-    width: 0%;
-    height: 2px;
-    background: #fff;
-    margin: 8px auto 0;
-    animation: underline 1.2s ease-out 0.6s forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes pop {
-    from { transform: scale(0); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  @keyframes underline {
-    to { width: 100%; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>iOS</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="website/favicon_io/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="website/favicon_io/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://a.favicon.im/apple.com">
+  <link rel="apple-touch-icon" sizes="180x180" href="website/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="website/favicon_io/web-app-manifest-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="website/favicon_io/web-app-manifest-512x512.png">
+  <link rel="manifest" href="website/favicon_io/site.webmanifest">
+  
+
+  <style>
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* =========================================================
+       ROOT VARIABLES
+    ========================================================= */
+
+    :root {
+      --bg-base: #0b0f1c;
+      --bg-card: #131a2c;
+      --bg-surface: #161f36;
+      --bg-deep: #0a0e18;
+
+      --border: #2a3552;
+      --border-soft: #232c46;
+      --border-strong: #3a4568;
+
+      --accent-blue: #4d7fee;
+      --accent-light: #8fc3ff;
+
+      --text-primary: #f2f5fb;
+      --text-secondary: #c7d3ea;
+      --text-muted: #93a2c4;
+      --text-dim: #6b7aa0;
+
+      --glow-blue: rgba(77, 127, 238, 0.35);
+
+      --nav-bg: rgba(11, 15, 28, 0.92);
+
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+
+      --font-display: 'Orbitron', 'Rajdhani', sans-serif;
+      --font-body: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
+    }
+
+    /* =========================================================
+       BASE
+    ========================================================= */
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-base);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.55;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% -10%, rgba(77, 127, 238, 0.10), transparent 60%),
+        radial-gradient(ellipse 50% 35% at 100% 10%, rgba(143, 195, 255, 0.06), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-base);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-strong);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-blue);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+
+      padding: 0 var(--space-lg);
+      height: 64px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #e8f1ff 0%, #9fc4ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 0.8px;
+      text-decoration: none;
+
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      white-space: nowrap;
+    }
+
+    .nav-brand-icon {
+      font-size: 1.2rem;
+      filter: drop-shadow(0 0 6px rgba(77, 127, 238, 0.6));
+    }
+
+    /* =========================================================
+       HAMBURGER
+    ========================================================= */
+
+    .hamburger {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-card);
+      color: var(--text-primary);
+
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+      position: relative;
+      z-index: 110;
+    }
+
+    .hamburger:hover {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 1px var(--glow-blue);
+      transform: translateY(-1px);
+    }
+
+    .hamburger-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 16px;
+    }
+
+    .hamburger-lines span {
+      display: block;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent-light);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      transform-origin: left center;
+    }
+
+    .hamburger.is-open .hamburger-lines span:nth-child(1) {
+      transform: rotate(38deg) translateY(-1px);
+    }
+
+    .hamburger.is-open .hamburger-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.is-open .hamburger-lines span:nth-child(3) {
+      transform: rotate(-38deg) translateY(1px);
+    }
+
+    /* =========================================================
+       DROPDOWN
+    ========================================================= */
+
+    .dropdown-wrap {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      right: 0;
+
+      min-width: 230px;
+      padding: 0.4rem;
+      border-radius: 16px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-deep);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(77, 127, 238, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+
+      z-index: 200;
+      opacity: 0;
+      transform: translateY(-8px) scale(0.98);
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .dropdown-menu.is-open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+
+      padding: 0.7rem 0.9rem;
+      border-radius: 11px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    }
+
+    .menu-item:hover,
+    .menu-item:focus-visible {
+      background: var(--bg-surface);
+      color: var(--accent-light);
+      transform: translateX(3px);
+    }
+
+    /* =========================================================
+       PAGE
+    ========================================================= */
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-2xl) var(--space-lg) var(--space-3xl);
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-md) var(--space-3xl);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-light);
+
+      background: rgba(143, 195, 255, 0.1);
+      border: 1px solid rgba(143, 195, 255, 0.3);
+      padding: 5px 14px;
+      border-radius: 40px;
+
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      font-weight: 900;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #eaf3ff 0%, #a9cbff 50%, #6fa2ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: var(--space-md);
+      letter-spacing: 1px;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+       SECTION LABEL
+    ========================================================= */
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--space-lg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* =========================================================
+       GRIDS
+    ========================================================= */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+      position: relative;
+      z-index: 1;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =========================================================
+       CARD
+    ========================================================= */
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: var(--space-lg) var(--space-lg) var(--space-md);
+
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(77, 127, 238, 0.14) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-4px);
+      border-color: rgba(77, 127, 238, 0.55);
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--glow-blue);
+    }
+
+    .card:hover::before,
+    .card:focus-visible::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      font-size: 1.9rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 8px rgba(143, 195, 255, 0.35));
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      padding: 3px 10px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent-light);
+      width: fit-content;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =========================================================
+       CARD BUTTON
+    ========================================================= */
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+
+      padding: 0.6rem 1.1rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #24408a, #1a306e);
+      border: 1px solid var(--border-strong);
+      color: #cfe2ff;
+
+      font-size: 0.87rem;
+      font-weight: 700;
+
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+      text-decoration: none;
+      width: fit-content;
+      margin-top: var(--space-xs);
+      position: relative;
+      z-index: 1;
+    }
+
+    .card:hover .card-btn,
+    .card:focus-visible .card-btn {
+      background: linear-gradient(135deg, #2f52aa, #22408e);
+      border-color: var(--accent-blue);
+      color: #eaf3ff;
+      transform: translateX(2px);
+    }
+
+    .card-btn-arrow {
+      transition: transform 0.18s ease;
+    }
+
+    .card:hover .card-btn-arrow,
+    .card:focus-visible .card-btn-arrow {
+      transform: translateX(3px);
+    }
+
+    /* =========================================================
+       CATEGORY (CORE SUBJECTS) PARENT CARD
+    ========================================================= */
+
+    .category-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: var(--space-lg);
+      margin-bottom: var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(77, 127, 238, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+      position: relative;
+      z-index: 1;
+    }
+
+    .category-icon {
+      font-size: 1.8rem;
+      filter: drop-shadow(0 0 8px rgba(143, 195, 255, 0.35));
+    }
+
+    .category-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+    }
+
+    .category-subtitle {
+      margin-top: 3px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .category-grid .card {
+      background: var(--bg-surface);
+      padding: var(--space-md);
+      border-radius: 16px;
+      min-height: 220px;
+    }
+
+    .category-grid .card:hover,
+    .category-grid .card:focus-visible {
+      border-color: rgba(77, 127, 238, 0.6);
+    }
+
+    .category-grid .card-icon {
+      font-size: 1.6rem;
+    }
+
+    .category-grid .card-title {
+      font-size: 0.92rem;
+    }
+
+    .category-grid .card-desc {
+      font-size: 0.85rem;
+    }
+
+    /* =========================================================
+       OTHER RESOURCES SECTION
+    ========================================================= */
+
+    .other-resources {
+      margin-top: var(--space-3xl);
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    .footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: var(--space-lg) var(--space-md);
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: var(--accent-light);
+      text-decoration: none;
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+
+    .footer a:hover {
+      opacity: 1;
+    }
+
+    .footer-dot {
+      opacity: 0.4;
+    }
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 640px) {
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid .card {
+        min-height: auto;
+      }
+
+      .navbar {
+        padding: 0 var(--space-md);
+      }
+
+      .nav-brand span:not(.nav-brand-icon) {
+        display: none;
+      }
+
+      .page {
+        padding: var(--space-xl) var(--space-md) var(--space-2xl);
+      }
+
+      .hero {
+        padding: var(--space-xl) var(--space-sm) var(--space-xl);
+      }
+    }
+
+  </style>
 </head>
+
+
 <body>
-  <div class="card">
-    <h1><span class="check">✓</span>Successfully Connected</h1>
-    <p>Your domain is live and pointing correctly.</p>
-    <div class="domain">adityaweb.xyz</div>
-  </div>
+
+  <!-- =========================================================
+       NAVBAR
+  ========================================================= -->
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+
+    <a href="#" class="nav-brand" onclick="goHome(); return false;">
+      <span class="nav-brand-icon" aria-hidden="true">🍎</span>
+      <span>Aditya Bhardwaj</span>
+    </a>
+
+    <div class="dropdown-wrap">
+
+      <button class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="dropdownMenu" aria-label="Toggle menu">
+        <div class="hamburger-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        MENU
+      </button>
+
+      <div class="dropdown-menu" id="dropdownMenu" role="menu">
+
+        <a href="#" class="menu-item" onclick="goHome(); return false;" role="menuitem">
+          🏠 Home
+        </a>
+
+        <a href="https://drive.google.com/drive/folders/1pVTpTB8PLrDP3BXFfdnHnxM2oOzNWXt1" class="menu-item" target="_blank" rel="noopener noreferrer" role="menuitem">
+          📖 Introduction Page
+        </a>
+
+        <a href="labmanual.html" class="menu-item" role="menuitem">
+          🔬 Lab Manuals
+        </a>
+
+        <a href="https://www.linkedin.com/in/aditya-bhardwaj-9a9a7a341/" class="menu-item" target="_blank" rel="noopener noreferrer" role="menuitem">
+          👤 LinkedIn Profile
+        </a>
+        
+         <a href="https://github.com/Aditya-xcity" class="menu-item" target="_blank" rel="noopener noreferrer" role="menuitem">
+          🐙 Github Profile
+        </a>
+
+         <a href="https://watchbutdonotlearn.github.io/" class="menu-item" target="_blank" rel="noopener noreferrer" role="menuitem">
+          🎮 Fun?
+        </a>
+
+
+        <a href="syllabus.html" class="menu-item" role="menuitem">
+          📘 Syllabus
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================================================
+       MAIN PAGE
+  ========================================================= -->
+
+  <main class="page">
+
+    <section class="hero">
+
+      <div class="hero-eyebrow">
+        <span aria-hidden="true">⚡</span>
+        iOS Resources
+      </div>
+
+      <h1 class="hero-title">XVELOCITY</h1>
+
+      <p class="hero-sub">Home Page to See All the Available Resources.</p>
+
+    </section>
+
+
+    <h2 class="section-label">Available Options</h2>
+
+
+    <!-- =====================================================
+         CORE SUBJECTS PARENT CARD
+    ===================================================== -->
+
+    <section class="category-card" aria-labelledby="core-subjects-title">
+
+      <header class="category-header">
+        <div class="category-icon" aria-hidden="true">📚</div>
+        <div>
+          <div class="category-title" id="core-subjects-title">Core Subjects</div>
+          <div class="category-subtitle">Important subjects for academics, placements &amp; interviews</div>
+        </div>
+      </header>
+
+      <div class="category-grid">
+
+        <a class="card" href="https://github.com/Aditya-xcity/os_lab" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon" aria-hidden="true">🖥️</div>
+          <span class="card-tag">Core Subject</span>
+          <div class="card-title">Operating System</div>
+          <div class="card-desc">Access Operating System lab work, code.</div>
+          <span class="card-btn">View OS Repo <span class="card-btn-arrow" aria-hidden="true">→</span></span>
+        </a>
+
+
+         
+
+        <a class="card" href="https://drive.google.com/drive/folders/1w3vONjRHixKZFo_DMqkQTBNobgaZF9wl?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon" aria-hidden="true">🗃️</div>
+          <span class="card-tag">Core Subject</span>
+          <div class="card-title">Operating System</div>
+          <div class="card-desc">Access Operating System useful OS resources.</div>
+          <span class="card-btn">View OS Repo <span class="card-btn-arrow" aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="card" href="https://drive.google.com/drive/folders/1Jsws6G8pfvs73Q1MXg_p0a7v50qMo39j?usp=drive_link" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon" aria-hidden="true">📊</div>
+          <span class="card-tag">Aptitude</span>
+          <div class="card-title">Quants &amp; Aptitude</div>
+          <div class="card-desc">Quantitative aptitude, reasoning and placement preparation resources.</div>
+          <span class="card-btn">Explore <span class="card-btn-arrow" aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="card" href="https://drive.google.com/drive/folders/1HevGW9uXgzo66wQcbmCnyIi0dpqypGoK?usp=drive_link" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon" aria-hidden="true">📝</div>
+          <span class="card-tag">English</span>
+          <div class="card-title">English</div>
+          <div class="card-desc">English communication, vocabulary, grammar and placement preparation.</div>
+          <span class="card-btn">Explore <span class="card-btn-arrow" aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="card" href="https://drive.google.com/drive/folders/1iIdwQqnqfHI64E3wAzKtSpsrDMehQG2L?usp=drive_link" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon" aria-hidden="true">⚙️</div>
+          <span class="card-tag">Core Subject</span>
+          <div class="card-title">System Design</div>
+          <div class="card-desc">System Design notes, architecture concepts and useful resources.</div>
+          <span class="card-btn">System Design Notes <span class="card-btn-arrow" aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="card" href="https://drive.google.com/drive/folders/1_eIVzO7zPmHmEwkbVtnOcxVI48FzCKzh?usp=drive_link" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon" aria-hidden="true">🗄️</div>
+          <span class="card-tag">Core Subject</span>
+          <div class="card-title">DBMS</div>
+          <div class="card-desc">Database concepts, SQL, normalization and interview preparation resources.</div>
+          <span class="card-btn">Explore <span class="card-btn-arrow" aria-hidden="true">→</span></span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         OTHER RESOURCES
+    ===================================================== -->
+
+    <section class="other-resources" aria-labelledby="other-resources-title">
+
+      <h2 class="section-label" id="other-resources-title">Other Resources</h2>
+
+      <div class="cards-grid">
+
+        <a class="card" href="https://aditya-xcity.github.io/pyq-portal/website/index.html" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon" aria-hidden="true">🎯</div>
+          <span class="card-tag">PYQ for Btech</span>
+          <div class="card-title">PYQ</div>
+          <div class="card-desc">Explore the latest updated collection of Previous Year Questions (PYQs) in one place.</div>
+          <span class="card-btn">View PYQ <span class="card-btn-arrow" aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="card" href="https://github.com/Aditya-xcity/SwiftCode" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon" aria-hidden="true">⭐</div>
+          <span class="card-tag">Swift</span>
+          <div class="card-title">Swift</div>
+          <div class="card-desc">Access Swift codes for all the work that is needed to be submitted.</div>
+          <span class="card-btn">View Swift Playground <span class="card-btn-arrow" aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="card" href="https://aditya-xcity.github.io/pyq-portal/website/syllabus.html" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon" aria-hidden="true">📂</div>
+          <span class="card-tag">Syllabus</span>
+          <div class="card-title">Syllabus</div>
+          <div class="card-desc">Stay updated with the latest semester-wise syllabus, designed for quick and hassle-free access.</div>
+          <span class="card-btn">View Syllabus <span class="card-btn-arrow" aria-hidden="true">→</span></span>
+        </a>
+
+         <a class="card" href="https://aditya-xcity.github.io/pyq-portal/index.html" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon" aria-hidden="true">🏫</div>
+          <span class="card-tag">Graphic Era Hill</span>
+          <div class="card-title">GEHU</div>
+          <div class="card-desc">Dont Worry Gehu Guys I still Got your back with this.</div>
+          <span class="card-btn">View Gehu Site <span class="card-btn-arrow" aria-hidden="true">→</span></span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer class="footer">
+
+    <span>Made with ❤️ by Aditya</span>
+    <span class="footer-dot">·</span>
+ <a href="https://www.youtube.com/watch?v=QDia3e12czc" target="_blank" rel="noopener noreferrer">
+    🌐 Claim Free Domain ↗
+</a>
+    <span class="footer-dot">·</span>
+    <span>Everything you need, instantly.</span>
+
+  </footer>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================= -->
+
+  <script>
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    function openMenu() {
+      dropdownMenu.classList.add('is-open');
+      hamburgerBtn.classList.add('is-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+      dropdownMenu.classList.remove('is-open');
+      hamburgerBtn.classList.remove('is-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    hamburgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!hamburgerBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    function goHome() {
+      window.location.href = 'index.html';
+    }
+
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+
+      card.style.transition =
+        `opacity 0.4s ease ${0.05 + i * 0.05}s,
+         transform 0.4s ease ${0.05 + i * 0.05}s,
+         background 0.2s ease,
+         border-color 0.2s ease`;
+
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 80);
+    });
+
+  </script>
+
 </body>
+
 </html>
