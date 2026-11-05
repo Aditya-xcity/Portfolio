@@ -2,7 +2,13 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projects · Aditya Bhardwaj</title><meta name="description" content="Aditya Bhardwaj’s projects in mobile development, machine learning, and backend systems.">
 <meta property="og:type" content="website"><meta property="og:title" content="Projects · Aditya Bhardwaj"><meta property="og:description" content="Aditya Bhardwaj’s projects in mobile development, machine learning, and backend systems.">
-<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwMDViYjgiLz4KICA8cGF0aCBkPSJNMTUgNDcgMjkgMTdoNmwxNCAzMGgtN2wtMy03SDI1bC0zIDd6bTEyLTEyaDEwbC01LTEyeiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="><style>:root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1d1d1f; background: #f5f5f7; line-height: 1.6; }
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwMDViYjgiLz4KICA8cGF0aCBkPSJNMTUgNDcgMjkgMTdoNmwxNCAzMGgtN2wtMy03SDI1bC0zIDd6bTEyLTEyaDEwbC01LTEyeiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="><script>
+try {
+  if (localStorage.getItem('portfolio-theme') === 'dark') {
+    document.documentElement.dataset.theme = 'dark';
+  }
+} catch {}
+</script><style>:root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1d1d1f; background: #f5f5f7; line-height: 1.6; }
 * { box-sizing: border-box; }
 body { margin: 0; }
 header { position: sticky; top: 0; z-index: 2; background: #fff; border-bottom: 1px solid #e5e5ea; }
@@ -45,9 +51,24 @@ footer { border-top: 1px solid #dedee4; padding-block: 1.5rem; }
 @media (max-width: 430px) { .brand { width: 100%; } .hero { margin-top: 2.5rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
 details { margin-bottom:.7rem; } summary { cursor:pointer; color:#005bb8; } details p { margin-top:.45rem; } .card[id] { scroll-margin-top:7rem; }
+
+.theme-toggle { margin-left:auto; }
+:root[data-theme="dark"] { color-scheme:dark; background:#0d1117; color:#e1e8f0; }
+[data-theme="dark"] header { background:#0d1117; border-color:#30363d; }
+[data-theme="dark"] nav a { color:#e1e8f0; }
+[data-theme="dark"] .card, [data-theme="dark"] .skip:focus { background:#21252b; border-color:#30363d; box-shadow:none; }
+[data-theme="dark"] footer { border-color:#30363d; }
+[data-theme="dark"] a, [data-theme="dark"] summary { color:#91baff; }
+[data-theme="dark"] .muted, [data-theme="dark"] .eyebrow, [data-theme="dark"] figcaption { color:#a6afb9; }
+[data-theme="dark"] button { background:#292d33; border-color:#515963; }
+[data-theme="dark"] button[aria-pressed="true"] { background:#081c3a; border-color:#669ce4; color:#e1e8f0; }
+[data-theme="dark"] .download { background:#081c3a; border:1px solid #669ce4; }
+[data-theme="dark"] :focus-visible { outline-color:#91baff; }
+[data-theme="dark"] .contact-card svg[fill="#24292f"] { fill:#e1e8f0; }
+[data-theme="dark"] .contact-card svg[stroke="#005bb8"] { stroke:#91baff; }
 </style></head>
 <body><a class="skip" href="#main">Skip to content</a>
-<header><nav aria-label="Main navigation"><a class="brand" href="/">Aditya</a><a href="/">Home</a><a href="/projects.html" aria-current="page">Projects</a><a href="/#resume">Résumé</a><a href="https://aditya-xcity.github.io/portfolio-resource-hub/">Online Study Resources</a><a href="/connect.html">Connect</a></nav></header>
+<header><nav aria-label="Main navigation"><a class="brand" href="/">Aditya</a><a href="/">Home</a><a href="/projects.html" aria-current="page">Projects</a><a href="/#resume">Résumé</a><a href="https://aditya-xcity.github.io/portfolio-resource-hub/">Online Study Resources</a><a href="/connect.html">Connect</a><button class="theme-toggle" type="button" aria-pressed="false" hidden>Dark mode</button></nav></header>
 <main id="main"><section id="projects"><h1>Projects</h1><p>Browse by category and expand any card for a short overview.</p><div data-project-list><div class="filters" role="group" aria-label="Filter projects" hidden><button type="button" data-filter="All" aria-pressed="true">All</button><button type="button" data-filter="Android" aria-pressed="false">Android</button><button type="button" data-filter="iOS / Swift" aria-pressed="false">iOS / Swift</button><button type="button" data-filter="Machine Learning &amp; AI" aria-pressed="false">Machine Learning &amp; AI</button><button type="button" data-filter="Computer Vision" aria-pressed="false">Computer Vision</button><button type="button" data-filter="Pokémon &amp; Games" aria-pressed="false">Pokémon &amp; Games</button><button type="button" data-filter="Web &amp; Backend" aria-pressed="false">Web &amp; Backend</button><button type="button" data-filter="Systems &amp; Utilities" aria-pressed="false">Systems &amp; Utilities</button></div><p class="sr" role="status"></p><div class="grid"><article class="card" id="case-Khelo" data-category="Android"><p class="eyebrow">Android Development</p><h3>Khelo</h3><p>Help recreational players find a game with room to join or organize one of their own.</p><p class="muted">Kotlin · Android Views · Material 3</p><details><summary>Show more</summary><p>Browse and search sample listings, inspect capacity, and join, leave, or create a game. The Create flow preserves a draft during activity recreation.</p></details><p class="actions"><a href="https://github.com/Aditya-xcity/Khelo">Source code<span class="sr"> for Khelo</span></a></p></article><article class="card" id="case-pyq-portal" data-category="Web &amp; Backend|Systems &amp; Utilities"><p class="eyebrow">Completed</p><h3>PYQ Portal</h3><p>Make previous-year exam papers easier for B.Tech students to locate.</p><p class="muted">Python · JavaScript · GitHub Pages</p><details><summary>Show more</summary><p>A Python script builds a directory manifest from the papers on disk. The browser reads that manifest to show the archive on a static host.</p></details><p class="actions"><a href="https://github.com/Aditya-xcity/pyq-portal">Source code<span class="sr"> for PYQ Portal</span></a></p></article><article class="card" id="case-nfc-attendance-pro" data-category="Systems &amp; Utilities"><p class="eyebrow">Prototype</p><h3>Tap &amp; Track</h3><p>Explore a tap-based attendance workflow for classrooms and labs.</p><p class="muted">Python · Tkinter · NFC</p><details><summary>Show more</summary><p>Separate reader handling, session tracking, and storage. The scanner checks repeated UIDs and the application records attendance with timestamps.</p></details><p class="actions"><a href="https://github.com/Aditya-xcity/nfc-attendance-pro">Source code<span class="sr"> for Tap &amp; Track</span></a></p></article><article class="card" id="case-RAteLimiiterMock" data-category="Web &amp; Backend|Systems &amp; Utilities"><p class="eyebrow">Experiment</p><h3>Rate Limiter Lab</h3><p>Show backend learners how request limits behave under bursts.</p><p class="muted">Python · Flask</p><details><summary>Show more</summary><p>A Flask UI and JSON endpoint exercise fixed windows, a sliding-window log, and a token bucket. A lock protects shared limiter state within the process.</p></details><p class="actions"><a href="https://github.com/Aditya-xcity/RAteLimiiterMock">Source code<span class="sr"> for Rate Limiter Lab</span></a></p></article><article class="card" id="case-GeoDetect-YOLOv8" data-category="Machine Learning &amp; AI|Computer Vision"><p class="eyebrow">Prototype</p><h3>GeoDetect</h3><p>Give someone evaluating an object detector a way to inspect predictions on images.</p><p class="muted">Python · Flask · OpenCV · Ultralytics</p><details><summary>Show more</summary><p>The Flask app accepts uploads or samples, loads YOLO weights, draws bounding boxes, and summarizes detections.</p></details><p class="actions"><a href="https://github.com/Aditya-xcity/GeoDetect-YOLOv8">Source code<span class="sr"> for GeoDetect</span></a></p></article><article class="card" id="case-late-submission-predictor" data-category="Machine Learning &amp; AI"><p class="eyebrow">Experiment</p><h3>Late Submission Predictor</h3><p>Explore how recorded submission patterns relate to assignment deadlines.</p><p class="muted">Python · pandas · scikit-learn</p><details><summary>Show more</summary><p>The script labels historical timestamps against a deadline, trains a classifier, and compares it with a baseline using stratified evaluation.</p></details><p class="actions"><a href="https://github.com/Aditya-xcity/late-submission-predictor">Source code<span class="sr"> for Late Submission Predictor</span></a></p></article><article class="card" id="case-pokemon-battle-simulator" data-category="Pokémon &amp; Games"><p class="eyebrow">Prototype</p><h3>Pokémon Battle Simulator</h3><p>Recreate the feel of a classic turn-based battle for players of retro Pokémon games.</p><p class="muted">Python · Pygame</p><details><summary>Show more</summary><p>Menu-driven combat updates HP and plays animations and sound. Pokémon data, interface constants, and configuration live in separate modules.</p></details><p class="actions"><a href="https://github.com/Aditya-xcity/pokemon-battle-simulator">Source code<span class="sr"> for Pokémon Battle Simulator</span></a></p></article><article class="card" id="case-first-apple-app" data-category="iOS / Swift"><p class="eyebrow">Experiment</p><h3>Attendance Marker</h3><p>Explore how a small iOS interface can represent classroom attendance.</p><p class="muted">Swift · SwiftUI</p><details><summary>Show more</summary><p>A SwiftUI attendance view provides a focused exercise in representing attendance state on screen.</p></details><p class="actions"><a href="https://github.com/Aditya-xcity/first-apple-app">Source code<span class="sr"> for Attendance Marker</span></a></p></article><article class="card" id="case-Contour-Extractor" data-category="Computer Vision|Web &amp; Backend"><p class="eyebrow">Prototype</p><h3>Contour Extractor</h3><p>Help artists turn a photo into a line-art reference they can trace in a browser.</p><p class="muted">Python · Flask · OpenCV · JavaScript</p><details><summary>Show more</summary><p>The fork documents a browser tracing workspace with configurable detail and PNG export. Its extraction pipeline builds on LyreZ61’s original contour-extractor.</p></details><p class="actions"><a href="https://github.com/Aditya-xcity/Contour-Extractor">Source code<span class="sr"> for Contour Extractor</span></a></p></article></div></div></section></main><footer>Aditya Bhardwaj</footer><script>for (const list of document.querySelectorAll('[data-project-list]')) {
   const controls = list.querySelector('.filters');
   const buttons = controls.querySelectorAll('button');
@@ -71,4 +92,19 @@ details { margin-bottom:.7rem; } summary { cursor:pointer; color:#005bb8; } deta
     status.textContent = `${visible} ${visible === 1 ? 'project' : 'projects'} shown.`;
   });
 }
+</script><script>
+const themeToggle = document.querySelector('.theme-toggle');
+const themeRoot = document.documentElement;
+function updateThemeToggle() {
+  const dark = themeRoot.dataset.theme === 'dark';
+  themeToggle.setAttribute('aria-pressed', String(dark));
+}
+updateThemeToggle();
+themeToggle.hidden = false;
+themeToggle.addEventListener('click', () => {
+  const theme = themeRoot.dataset.theme === 'dark' ? 'light' : 'dark';
+  themeRoot.dataset.theme = theme;
+  updateThemeToggle();
+  try { localStorage.setItem('portfolio-theme', theme); } catch {}
+});
 </script></body></html>
