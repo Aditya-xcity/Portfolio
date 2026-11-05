@@ -2,7 +2,13 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Developer Portfolio · Aditya Bhardwaj</title><meta name="description" content="Aditya Bhardwaj’s projects in mobile development, machine learning, and backend systems.">
 <meta property="og:type" content="website"><meta property="og:title" content="Developer Portfolio · Aditya Bhardwaj"><meta property="og:description" content="Aditya Bhardwaj’s projects in mobile development, machine learning, and backend systems.">
-<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwMDViYjgiLz4KICA8cGF0aCBkPSJNMTUgNDcgMjkgMTdoNmwxNCAzMGgtN2wtMy03SDI1bC0zIDd6bTEyLTEyaDEwbC01LTEyeiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="><style>:root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1d1d1f; background: #f5f5f7; line-height: 1.6; }
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwMDViYjgiLz4KICA8cGF0aCBkPSJNMTUgNDcgMjkgMTdoNmwxNCAzMGgtN2wtMy03SDI1bC0zIDd6bTEyLTEyaDEwbC01LTEyeiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="><script>
+try {
+  if (localStorage.getItem('portfolio-theme') === 'dark') {
+    document.documentElement.dataset.theme = 'dark';
+  }
+} catch {}
+</script><style>:root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1d1d1f; background: #f5f5f7; line-height: 1.6; }
 * { box-sizing: border-box; }
 body { margin: 0; }
 header { position: sticky; top: 0; z-index: 2; background: #fff; border-bottom: 1px solid #e5e5ea; }
@@ -45,9 +51,24 @@ footer { border-top: 1px solid #dedee4; padding-block: 1.5rem; }
 @media (max-width: 430px) { .brand { width: 100%; } .hero { margin-top: 2.5rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
 .download { display:inline-block; background:#005bb8; color:white; padding:.5rem .9rem; border-radius:.5rem; }
+
+.theme-toggle { margin-left:auto; }
+:root[data-theme="dark"] { color-scheme:dark; background:#0d1117; color:#e1e8f0; }
+[data-theme="dark"] header { background:#0d1117; border-color:#30363d; }
+[data-theme="dark"] nav a { color:#e1e8f0; }
+[data-theme="dark"] .card, [data-theme="dark"] .skip:focus { background:#21252b; border-color:#30363d; box-shadow:none; }
+[data-theme="dark"] footer { border-color:#30363d; }
+[data-theme="dark"] a, [data-theme="dark"] summary { color:#91baff; }
+[data-theme="dark"] .muted, [data-theme="dark"] .eyebrow, [data-theme="dark"] figcaption { color:#a6afb9; }
+[data-theme="dark"] button { background:#292d33; border-color:#515963; }
+[data-theme="dark"] button[aria-pressed="true"] { background:#081c3a; border-color:#669ce4; color:#e1e8f0; }
+[data-theme="dark"] .download { background:#081c3a; border:1px solid #669ce4; }
+[data-theme="dark"] :focus-visible { outline-color:#91baff; }
+[data-theme="dark"] .contact-card svg[fill="#24292f"] { fill:#e1e8f0; }
+[data-theme="dark"] .contact-card svg[stroke="#005bb8"] { stroke:#91baff; }
 </style></head>
 <body><a class="skip" href="#main">Skip to content</a>
-<header><nav aria-label="Main navigation"><a class="brand" href="/">Aditya</a><a href="/">Home</a><a href="/projects.html">Projects</a><a href="/#resume">Résumé</a><a href="https://aditya-xcity.github.io/portfolio-resource-hub/">Online Study Resources</a><a href="/connect.html">Connect</a></nav></header>
+<header><nav aria-label="Main navigation"><a class="brand" href="/">Aditya</a><a href="/">Home</a><a href="/projects.html">Projects</a><a href="/#resume">Résumé</a><a href="https://aditya-xcity.github.io/portfolio-resource-hub/">Online Study Resources</a><a href="/connect.html">Connect</a><button class="theme-toggle" type="button" aria-pressed="false" hidden>Dark mode</button></nav></header>
 <main id="main"><section class="hero" aria-labelledby="name"><p class="eyebrow">DEHRADUN, INDIA</p><h1 id="name">Aditya Bhardwaj</h1><p class="intro">Computer science student and iOS development trainee.</p><p>I build software around practical problems, from finding a game nearby to making exam papers easier to access. I also build small experiments to understand how computer vision and backend systems work.</p><p class="actions"><a href="projects.html">Explore projects</a><a href="#resume">Read résumé</a><a href="/connect.html">Connect with me</a></p></section><section><h2>Recent Work</h2><div class="grid"><article class="card" data-category="Android"><p class="eyebrow">Android Development</p><h3>Khelo</h3><p>Help recreational players find a game with room to join or organize one of their own.</p><p class="muted">Kotlin · Android Views · Material 3</p><p class="actions"><a href="projects.html#case-Khelo">View project<span class="sr"> Khelo</span></a><a href="https://github.com/Aditya-xcity/Khelo">Source code<span class="sr"> for Khelo</span></a></p></article><article class="card" data-category="Web &amp; Backend|Systems &amp; Utilities"><p class="eyebrow">Completed</p><h3>PYQ Portal</h3><p>Make previous-year exam papers easier for B.Tech students to locate.</p><p class="muted">Python · JavaScript · GitHub Pages</p><p class="actions"><a href="projects.html#case-pyq-portal">View project<span class="sr"> PYQ Portal</span></a><a href="https://github.com/Aditya-xcity/pyq-portal">Source code<span class="sr"> for PYQ Portal</span></a></p></article><article class="card" data-category="Web &amp; Backend|Systems &amp; Utilities"><p class="eyebrow">Experiment</p><h3>Rate Limiter Lab</h3><p>Show backend learners how request limits behave under bursts.</p><p class="muted">Python · Flask</p><p class="actions"><a href="projects.html#case-RAteLimiiterMock">View project<span class="sr"> Rate Limiter Lab</span></a><a href="https://github.com/Aditya-xcity/RAteLimiiterMock">Source code<span class="sr"> for Rate Limiter Lab</span></a></p></article></div></section><section id="resume"><h2>Résumé</h2><p><a class="download" download="Aditya-Bhardwaj-Resume.pdf" href="data:application/pdf;base64,JVBERi0xLjMKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNCAwIG9iago8PAovQSA8PAovUyAvVVJJIC9UeXBlIC9BY3Rpb24gL1VSSSAoaHR0cHM6Ly9hZGl0eWF3ZWIueHl6LykKPj4gL0JvcmRlciBbIDAgMCAwIF0gL1JlY3QgWyA1MCA3MDcgNTQ1IDcyMSBdIC9TdWJ0eXBlIC9MaW5rIC9UeXBlIC9Bbm5vdAo+PgplbmRvYmoKNSAwIG9iago8PAovQSA8PAovUyAvVVJJIC9UeXBlIC9BY3Rpb24gL1VSSSAoaHR0cHM6Ly9naXRodWIuY29tL0FkaXR5YS14Y2l0eSkKPj4gL0JvcmRlciBbIDAgMCAwIF0gL1JlY3QgWyA1MCA2OTAgNTQ1IDcwNCBdIC9TdWJ0eXBlIC9MaW5rIC9UeXBlIC9Bbm5vdAo+PgplbmRvYmoKNiAwIG9iago8PAovQSA8PAovUyAvVVJJIC9UeXBlIC9BY3Rpb24gL1VSSSAoaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2FkaXR5YS1iaGFyZHdhai1pb3MvKQo+PiAvQm9yZGVyIFsgMCAwIDAgXSAvUmVjdCBbIDUwIDY3MyA1NDUgNjg3IF0gL1N1YnR5cGUgL0xpbmsgL1R5cGUgL0Fubm90Cj4+CmVuZG9iago3IDAgb2JqCjw8Ci9Bbm5vdHMgWyA0IDAgUiA1IDAgUiA2IDAgUiBdIC9Db250ZW50cyAxMSAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCAxMCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgCiAgL1RyYW5zIDw8Cgo+PiAvVHlwZSAvUGFnZQo+PgplbmRvYmoKOCAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDEwIDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKOSAwIG9iago8PAovQXV0aG9yIChBZGl0eWEgQmhhcmR3YWopIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjExMDUxMDUxMDgrMDAnMDAnKSAvQ3JlYXRvciAoYW5vbnltb3VzKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjExMDUxMDUxMDgrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3ViamVjdCAodW5zcGVjaWZpZWQpIC9UaXRsZSAoQWRpdHlhIEJoYXJkd2FqIC0gUmVzdW1lKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjEwIDAgb2JqCjw8Ci9Db3VudCAxIC9LaWRzIFsgNyAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjExIDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDEwMTkKPj4Kc3RyZWFtCkdhdD0pPyQiSUsmOkVZQmdgbk01aiNCZTNHaj8vXytXVVcoUkdoI0pjXS9vSm5qbWVsRlNQQnJVZC1BJ2wnVFNPWFhIITtcJHBeTiZPYzcvXFMicUZTPjdrOjBTMy4xQmBYdFM5SF1uREgyPlw+YHQyJjVyQV0sNSpVTmtTJl40a1UrS2FWcUVSKWdoXzkmLkZdT1NFaCtNRUwkbTtFXCorJDkqZDMnRTRhYlQrcC1YSUllNkpuO3IhQS1iaVdqc1VXbE9UWVdyS0pVOVk4aUYpajksNklnbkdxN2BPY0A5UjBObWJhYz5dbWZoTU08OTcqYUhkU0IwWU9LK2BJbyRgUWZDLmtVak8hM0Qvb29fW1UvXFY+NDkkRmRZRUA4SCtPXUBdRFZFLSdeOCpvV0Y/WFA2YUJhYTMvdDUxaks+bDpXaCMzLmEuLClwR00oLERyWWlfVE1obUtkNVNkMDUlTkNxYEVfNjU3blcvR1Q+bSc0P0NdVCxgX09bRF9sIjgnW0JfQStyPWcvKWxONVlfND82LkInVEdnQUIxRjpNcGMzKiZITjx1NkV0LkkxSDhHRS9wVUk1TlNvI1pvXGc6bzVUZmVDcmdoMjFINzEmRUJCJl9yUmpLcXBiR2wxO0BoZ09SPDMsRm1pRkxxWFstVyRHIWNZPzRXclA9VDZpSTovLzkzJV4lYzk2aDNlNTJwWDxoLyVXMGxFRVRKTz1AQWwnWExGU1dJNUVWXzlOP2MxTkNJW09OZ1NLVCouKkYhLTUybDsoN1U6aFZMMEpmKjY2SE5GbTRtPlo8O0g6aWRhPD50OFBBTXJNXipiVzRlV2NYLVB0XGwoPDA8O1RmLHRjKl8rTWdFO3Q6IiJQcU0rIiImYkNYbjliJTRAQV9EMiFrRFJBKUR1VW5pKSEhXEhkMyQtcWVKajtbYC50b0AhPDdiPWI1RjgnKTkqPzA1OTRmZ1g4cDspOi9ZcThzViZcLz4tRyohLGJxNlZoUEJfOGVlNGsyNXNFWCMiSlFpRWdrN0FVX2Z1U0oqO2QmWS0zS2NGJ2BvTGw+c0NbWE5sTy9WbSxePXEiTEJrO3JnNlxbb0BVbTc1IXQ4a19kaD0vLWwwK2JVS3FVZGA7ayk9TEhmZE5VQUg1NFM9Olk6bkZBUyonNUhBISImL3Q3dSpTVi1zI2A2amJHYjA1QlM5JUxRVyRbPi87czk6Ry1gVlpvM2BRQWdLZTNiK0xTO0k0TnRYLyJAKVJyI15LcChPMGEpTU9gQGJJKkwvcUNwUUombF9xImFCXlpcRDhMbk1Nb21tI2EmJT43Wmg5dSVtRkBSaGsxXitdcVBRQHQ6IW1YcWxWPn4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgMTIKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDYxIDAwMDAwIG4gCjAwMDAwMDAxMDIgMDAwMDAgbiAKMDAwMDAwMDIwOSAwMDAwMCBuIAowMDAwMDAwMzIxIDAwMDAwIG4gCjAwMDAwMDA0NzQgMDAwMDAgbiAKMDAwMDAwMDYzNiAwMDAwMCBuIAowMDAwMDAwODE1IDAwMDAwIG4gCjAwMDAwMDEwNTAgMDAwMDAgbiAKMDAwMDAwMTExOSAwMDAwMCBuIAowMDAwMDAxNDAyIDAwMDAwIG4gCjAwMDAwMDE0NjIgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8OTA0N2RhYzg2NGIwYjc4ODk4ZDhjM2YzY2VjYzUxZmQ+PDkwNDdkYWM4NjRiMGI3ODg5OGQ4YzNmM2NlY2M1MWZkPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA5IDAgUgovUm9vdCA4IDAgUgovU2l6ZSAxMgo+PgpzdGFydHhyZWYKMjU3MwolJUVPRgo=">Download résumé (PDF)</a></p></section></main><footer>Aditya Bhardwaj</footer><script>for (const list of document.querySelectorAll('[data-project-list]')) {
   const controls = list.querySelector('.filters');
   const buttons = controls.querySelectorAll('button');
@@ -71,4 +92,19 @@ footer { border-top: 1px solid #dedee4; padding-block: 1.5rem; }
     status.textContent = `${visible} ${visible === 1 ? 'project' : 'projects'} shown.`;
   });
 }
+</script><script>
+const themeToggle = document.querySelector('.theme-toggle');
+const themeRoot = document.documentElement;
+function updateThemeToggle() {
+  const dark = themeRoot.dataset.theme === 'dark';
+  themeToggle.setAttribute('aria-pressed', String(dark));
+}
+updateThemeToggle();
+themeToggle.hidden = false;
+themeToggle.addEventListener('click', () => {
+  const theme = themeRoot.dataset.theme === 'dark' ? 'light' : 'dark';
+  themeRoot.dataset.theme = theme;
+  updateThemeToggle();
+  try { localStorage.setItem('portfolio-theme', theme); } catch {}
+});
 </script></body></html>
