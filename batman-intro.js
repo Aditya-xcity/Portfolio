@@ -17,12 +17,21 @@
   dialog.innerHTML = `
     <video playsinline aria-hidden="true"></video>
     <div class="intro-controls">
-      <button type="button" aria-pressed="true">Sound</button>
+      <button type="button" aria-label="Sound" aria-pressed="true" title="Mute intro" style="width:44px;padding:0;display:grid;place-items:center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
+          <path data-sound-on d="M15 9a4 4 0 0 1 0 6m3-9a8 8 0 0 1 0 12"/>
+          <path data-sound-off style="display:none" d="m16 10 4 4m0-4-4 4"/>
+        </svg>
+      </button>
       <button type="button" autofocus>Skip Intro</button>
     </div>`;
 
   const video = dialog.querySelector('video');
   const [sound, skip] = dialog.querySelectorAll('button');
+  const soundOn = sound.querySelector('[data-sound-on]');
+  const soundOff = sound.querySelector('[data-sound-off]');
   const listeners = new AbortController();
   const options = { signal: listeners.signal };
   let closing = false;
@@ -30,6 +39,9 @@
 
   function updateSound() {
     sound.setAttribute('aria-pressed', String(!video.muted));
+    sound.title = video.muted ? 'Unmute intro' : 'Mute intro';
+    soundOn.style.display = video.muted ? 'none' : '';
+    soundOff.style.display = video.muted ? '' : 'none';
   }
 
   function finish(immediately = false) {
@@ -90,9 +102,6 @@
   document.body.append(dialog);
   dialog.showModal();
   waitForPlayback();
-  // Start inline and muted on phones so Safari can autoplay before a tap.
-  video.muted = Boolean(phone);
-  updateSound();
   video.src = new URL('./Polyester%20Batman%20edit_1080p60.mp4', document.currentScript.src);
   video.play().catch(error => {
     if (closing) return;
