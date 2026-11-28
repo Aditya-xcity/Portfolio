@@ -1,11 +1,14 @@
 (() => {
   const desktop = matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const mobileDevice = navigator.userAgentData?.mobile ||
-    /Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(navigator.userAgent) ||
-    (/Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+  const userAgent = navigator.userAgent;
+  const tablet = /iPad|Tablet|PlayBook|Silk/i.test(userAgent) ||
+    (/Macintosh/i.test(userAgent) && navigator.maxTouchPoints > 1) ||
+    (/Android/i.test(userAgent) && !/Mobile/i.test(userAgent));
+  const phone = !tablet && (navigator.userAgentData?.mobile ||
+    /iPhone|iPod|Mobi/i.test(userAgent));
 
-  if (mobileDevice || !desktop.matches || reducedMotion.matches || location.hash ||
+  if (tablet || (!phone && !desktop.matches) || reducedMotion.matches || location.hash ||
       typeof HTMLDialogElement === 'undefined' || !HTMLDialogElement.prototype.showModal) return;
 
   const dialog = document.createElement('dialog');
@@ -80,17 +83,20 @@
   dialog.addEventListener('cancel', event => event.preventDefault());
   reducedMotion.addEventListener('change', () => finish(true), options);
   desktop.addEventListener('change', () => {
-    if (!desktop.matches) finish(true);
+    if (!phone && !desktop.matches) finish(true);
   }, options);
   window.addEventListener('hashchange', () => finish(true), options);
 
   document.body.append(dialog);
   dialog.showModal();
   waitForPlayback();
+  // Start inline and muted on phones so Safari can autoplay before a tap.
+  video.muted = Boolean(phone);
+  updateSound();
   video.src = new URL('./Polyester%20Batman%20edit_1080p60.mp4', document.currentScript.src);
   video.play().catch(error => {
     if (closing) return;
-    if (error.name !== 'NotAllowedError') {
+    if (video.muted || error.name !== 'NotAllowedError') {
       finish(true);
       return;
     }
